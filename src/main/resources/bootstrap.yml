@@ -5,38 +5,20 @@ eureka:
 spring:
   application:
     name: user
-  cloud:
-    config:
-      discovery:
-        enabled: true  #change to true if using config center  #http://localhost:8080/MyProduct-dev.yml
-        service-id: CONFIG
-      profile: dev
-
+#  cloud:
+#    config:
+#      discovery:
+#        enabled: true  #change to true if using config center  #http://localhost:8080/MyProduct-dev.yml
+#        service-id: CONFIG
+#      profile: dev
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    password: 123
+    url: jdbc:mysql://159.203.13.39/jpa_new?serverTimezone=UTC&characterEncoding=UTF8&zeroDateTimeBehavior=convertToNull&useSSL=false
+    username: ming
 server:
   port: 8083
 debug: true
 
-#sharding:
-#  jdbc:
-#    datasource:
-#      names: ds0,ds1
-#      ds_0:
-#        #type: org.apache.commons.dbcp.BasicDataSource #com.mysql.jdbc.jdbc2.optional.MysqlDataSource
-#        driver-class-name: com.mysql.jdbc.Driver
-#        url: jdbc:mysql://localhost/jpa_new?serverTimezone=UTC&characterEncoding=UTF8&zeroDateTimeBehavior=convertToNull&useSSL=false
-#        username: root
-#        password: 123
-#      ds_1:
-#        #type: org.apache.commons.dbcp.BasicDataSource #com.mysql.jdbc.jdbc2.optional.MysqlDataSource
-#        driver-class-name: com.mysql.jdbc.Driver
-#        url: jdbc:mysql://159.203.13.39/jpa_new?serverTimezone=UTC&characterEncoding=UTF8&zeroDateTimeBehavior=convertToNull&useSSL=false
-#        username: ming
-#        password: 123
-#
-#    config:
-#      sharding:
-#        default-database-strategy:
-#          inline:
-#            sharding-column: id
-#            algorithm-expression: ds_${id % 2}
+
 
